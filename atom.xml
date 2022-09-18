@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-18T16:32:29.637Z</updated>
+  <updated>2022-09-18T16:33:41.513Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2022/09/19/%E6%88%90%E5%8A%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://example.com/2022/09/19/%E6%88%90%E5%8A%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2022-09-18T16:13:28.000Z</published>
-    <updated>2022-09-18T16:32:29.637Z</updated>
+    <updated>2022-09-18T16:33:41.513Z</updated>
     
     <content type="html"><![CDATA[<p>今晚，有意进行博客搭建，经过一段时间终于成功</p>]]></content>
     
@@ -34,8 +34,6 @@
     
     
     
-    
-    <category term="daily" scheme="http://example.com/tags/daily/"/>
     
   </entry>
   

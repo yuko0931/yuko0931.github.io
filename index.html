@@ -176,10 +176,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-09-19 22:52:38 / 修改时间：23:31:04" itemprop="dateCreated datePublished" datetime="2022-09-19T22:52:38+08:00">2022-09-19</time>
+              <time title="创建时间：2022-09-19 22:52:38" itemprop="dateCreated datePublished" datetime="2022-09-19T22:52:38+08:00">2022-09-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-20 00:08:08" itemprop="dateModified" datetime="2022-09-20T00:08:08+08:00">2022-09-20</time>
+              </span>
 
           
 
@@ -201,6 +207,7 @@
 <li>对于无向图、有向图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】&#x3D;1；若不为其中的边，则为0</li>
 <li>对于带权图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】为该边上对应的权值；若不为其中的边，则为∞或0</li>
 </ul>
+<p><img src="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925852-1307203761.png" alt="img"></p>
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
 <li><p>适合稠密图的存储</p>
 </li>
@@ -227,7 +234,69 @@
 <li>结合顺序存储和链式存储</li>
 <li>适合存储稀疏图</li>
 </ul>
-<h3 id="具体-1"><a href="#具体-1" class="headerlink" title="具体"></a>具体</h3><p>- </p>
+<h3 id="具体-1"><a href="#具体-1" class="headerlink" title="具体"></a>具体</h3><ul>
+<li>对每个顶点建立一个单链表，保存依附于该结点的边，称之为邻接表（链式存储）</li>
+<li>边表的头指针和顶点的数据采用顺序存储，称之为顶点表（顺序存储）</li>
+<li>顶点表由数据域和指针域组成，数据域存储顶点信息，指针域指向第一个邻接点。</li>
+<li>边表由adjvex和next两个域组成，adjvex存储某顶点的邻接点在顶点表中的下标，next则存储指向边表中下一个结点的指针。</li>
+</ul>
+<p><img src="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925646-961971299.png" alt="img"></p>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p>若图G为无向图，存储空间为O(V +2E)（边被保存两次）</p>
+<p>若图G为有向图，存储空间为O(V +E)</p>
+</li>
+<li><p>图的邻接表保存不唯一，因为邻接边的顺序任意</p>
+</li>
+<li><p>存储稀疏图可以节约空间</p>
+</li>
+</ul>
+<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>容易找到给定顶点的所有邻边</li>
+<li>确定两顶点间是否有边复杂</li>
+<li>计算出度简单，遍历邻接表即可</li>
+<li>计算入度复杂，需遍历全部邻接表</li>
+</ul>
+<h2 id="十字链表"><a href="#十字链表" class="headerlink" title="十字链表"></a>十字链表</h2><h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>有向图的链式存储</li>
+<li>出度入度易于计算</li>
+<li>图的十字链表表示不唯一，但十字链表可以确定一个图</li>
+</ul>
+<h2 id="邻接多重表"><a href="#邻接多重表" class="headerlink" title="邻接多重表"></a>邻接多重表</h2><h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>无向图的链式存储</li>
+<li>邻接多重表与邻接表相比，其一条边只有一个结点</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th align="center">邻接矩阵</th>
+<th align="center">邻接表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">有向图、无向图</td>
+<td align="center">有向图、无向图</td>
+</tr>
+<tr>
+<td align="center">顺序结构</td>
+<td align="center">链式结构</td>
+</tr>
+<tr>
+<td align="center">稠密图</td>
+<td align="center">稀疏图</td>
+</tr>
+<tr>
+<td align="center">出度入度计算简单</td>
+<td align="center">出度计算简单，入度需要遍历</td>
+</tr>
+<tr>
+<td align="center">易于确定两点间是否有边</td>
+<td align="center">不易确定两点间是否有边</td>
+</tr>
+<tr>
+<td align="center">图表示唯一</td>
+<td align="center">图表示不唯一</td>
+</tr>
+</tbody></table>
 
       
     </div>

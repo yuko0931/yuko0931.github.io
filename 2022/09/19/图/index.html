@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="Sion">
 <meta property="og:description" content="存储方式邻接矩阵法 一维数组存储顶点信息（简单应用时可以省略） 二维数据存储邻接关系（邻接矩阵，重点） 有向图、无向图、带权图均可以存储  具体 对于无向图、有向图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】&#x3D;1；若不为其中的边，则为0 对于带权图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】为该边上对应的权值；若">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925852-1307203761.png">
-<meta property="og:image" content="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925646-961971299.png">
+<meta property="og:image" content="http://example.com/images/%E5%9B%BE/2494103-20220420075925852-1307203761.png">
+<meta property="og:image" content="http://example.com/images/%E5%9B%BE/2494103-20220420075925646-961971299.png">
 <meta property="article:published_time" content="2022-09-19T14:52:38.000Z">
-<meta property="article:modified_time" content="2022-09-19T16:08:08.310Z">
+<meta property="article:modified_time" content="2022-09-19T16:50:06.520Z">
 <meta property="article:author" content="yuko0931">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925852-1307203761.png">
+<meta name="twitter:image" content="http://example.com/images/%E5%9B%BE/2494103-20220420075925852-1307203761.png">
 
 <link rel="canonical" href="http://example.com/2022/09/19/%E5%9B%BE/">
 
@@ -189,7 +189,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-20 00:08:08" itemprop="dateModified" datetime="2022-09-20T00:08:08+08:00">2022-09-20</time>
+                <time title="修改时间：2022-09-20 00:50:06" itemprop="dateModified" datetime="2022-09-20T00:50:06+08:00">2022-09-20</time>
               </span>
 
           
@@ -212,7 +212,7 @@
 <li>对于无向图、有向图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】&#x3D;1；若不为其中的边，则为0</li>
 <li>对于带权图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】为该边上对应的权值；若不为其中的边，则为∞或0</li>
 </ul>
-<p><img src="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925852-1307203761.png" alt="img"></p>
+<p><img src="/images/%E5%9B%BE/2494103-20220420075925852-1307203761.png" alt="img"></p>
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
 <li><p>适合稠密图的存储</p>
 </li>
@@ -245,7 +245,7 @@
 <li>顶点表由数据域和指针域组成，数据域存储顶点信息，指针域指向第一个邻接点。</li>
 <li>边表由adjvex和next两个域组成，adjvex存储某顶点的邻接点在顶点表中的下标，next则存储指向边表中下一个结点的指针。</li>
 </ul>
-<p><img src="https://img2022.cnblogs.com/blog/2494103/202204/2494103-20220420075925646-961971299.png" alt="img"></p>
+<p><img src="/images/%E5%9B%BE/2494103-20220420075925646-961971299.png" alt="img"></p>
 <h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
 <li><p>若图G为无向图，存储空间为O(V +2E)（边被保存两次）</p>
 <p>若图G为有向图，存储空间为O(V +E)</p>

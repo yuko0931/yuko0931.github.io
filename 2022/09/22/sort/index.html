@@ -20,30 +20,50 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录个人的学习进程及相关知识">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sion">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="排序排序中的快速排序、堆排序、归并排序为重难点，该部分应该不会出算法题，应用题有概率出，主要还是选择题吧 重点在于算法的思想过程、最多最少比较移动次数、时间、空间复杂度、稳定性，各种算法较多，需要汇总比较。 概述排序大类可分为内部排序和外部排序。（内部排序是重点 内部排序绝大部分是基于比较和移动，基数排序例外 内部排序也可分为三大类：插入排序、选择排序、交换排序，以及归并排序和基数排序 外部排序主">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sort">
+<meta property="og:url" content="http://example.com/2022/09/22/sort/index.html">
 <meta property="og:site_name" content="Sion">
-<meta property="og:description" content="记录个人的学习进程及相关知识">
+<meta property="og:description" content="排序排序中的快速排序、堆排序、归并排序为重难点，该部分应该不会出算法题，应用题有概率出，主要还是选择题吧 重点在于算法的思想过程、最多最少比较移动次数、时间、空间复杂度、稳定性，各种算法较多，需要汇总比较。 概述排序大类可分为内部排序和外部排序。（内部排序是重点 内部排序绝大部分是基于比较和移动，基数排序例外 内部排序也可分为三大类：插入排序、选择排序、交换排序，以及归并排序和基数排序 外部排序主">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075926078-1599669564.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075926437-269453069.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075926089-560783177.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075938593-1837353955.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075938616-75387927.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075930760-1248755956.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075927779-1194033258.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075934672-455026102.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075934705-948351235.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075936966-1897349806.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075934343-423220830.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075935406-1442003891.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075936247-1467824898.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075936770-1035209519.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075937209-1018671536.png">
+<meta property="og:image" content="http://example.com/images/sort/2494103-20220420075938212-601628692.png">
+<meta property="article:published_time" content="2022-09-22T13:54:43.000Z">
+<meta property="article:modified_time" content="2022-09-22T16:20:03.750Z">
 <meta property="article:author" content="yuko0931">
+<meta property="article:tag" content="data strcuture, 408">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/sort/2494103-20220420075926078-1599669564.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/09/22/sort/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Sion</title>
+  <title>sort | Sion</title>
   
 
 
@@ -157,9 +177,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -175,10 +196,9 @@
       <meta itemprop="name" content="Sion">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/22/sort/" class="post-title-link" itemprop="url">sort</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          sort
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -217,7 +237,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>排序中的快速排序、堆排序、归并排序为重难点，该部分应该不会出算法题，应用题有概率出，主要还是选择题吧</p>
+        <h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>排序中的快速排序、堆排序、归并排序为重难点，该部分应该不会出算法题，应用题有概率出，主要还是选择题吧</p>
 <p>重点在于算法的思想过程、最多最少比较移动次数、时间、空间复杂度、稳定性，各种算法较多，需要汇总比较。</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>排序大类可分为内部排序和外部排序。（内部排序是重点</p>
 <p>内部排序绝大部分是基于比较和移动，基数排序例外</p>
@@ -543,387 +563,33 @@
 <h2 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h2><p>东西不算少，不常考察</p>
 <p><img src="/images/sort/2494103-20220420075938212-601628692.png" alt="img"></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/data-strcuture-408/" rel="tag"># data strcuture, 408</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/19/%E5%9B%BE/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuko0931">
-      <meta itemprop="description" content="记录个人的学习进程及相关知识">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sion">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/19/%E5%9B%BE/" class="post-title-link" itemprop="url">图</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-19 22:52:38" itemprop="dateCreated datePublished" datetime="2022-09-19T22:52:38+08:00">2022-09-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-21 13:41:20" itemprop="dateModified" datetime="2022-09-21T13:41:20+08:00">2022-09-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h1><h2 id="邻接矩阵法"><a href="#邻接矩阵法" class="headerlink" title="邻接矩阵法"></a>邻接矩阵法</h2><ul>
-<li>一维数组存储顶点信息（简单应用时可以省略）</li>
-<li>二维数据存储邻接关系（邻接矩阵，重点）</li>
-<li>有向图、无向图、带权图均可以存储</li>
-</ul>
-<h3 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h3><ul>
-<li>对于无向图、有向图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】&#x3D;1；若不为其中的边，则为0</li>
-<li>对于带权图，若&lt;i, j&gt; 或 (i, j)是图中的边，则邻接矩阵A[i]【j】为该边上对应的权值；若不为其中的边，则为∞或0</li>
-</ul>
-<p><img src="/images/%E5%9B%BE/2494103-20220420075925852-1307203761.png" alt="img"></p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li><p>适合稠密图的存储</p>
-</li>
-<li><p>无向图的邻接矩阵一定是对称矩阵</p>
-</li>
-<li><p>有向图、无向图的邻接矩阵必为n阶方阵，n即为顶点数</p>
-</li>
-<li><p>无向图顶点i的度 &#x3D; 第i行(i列)非0(非∞，有权图)的个数</p>
-<p>度之和 &#x3D; 边数 * 2</p>
-</li>
-<li><p>有向图顶点i的出度 &#x3D; 第i行非0(非∞，带权图)的个数</p>
-<p>有向图顶点i的入度 &#x3D; 第i列非0(非∞，带权图)的个数</p>
-<p>出度之和 &#x3D; 入度之和 &#x3D; 边数</p>
-</li>
-<li><p>已知邻接矩阵A^n，则其i行j列的值 &#x3D; 顶点i到j长度为n的路径条数</p>
-</li>
-</ul>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
-<li>查找两个顶点间是否有边相连易</li>
-<li>确定边数需对每行遍历</li>
-<li>存储稀疏图时空间浪费较大</li>
-</ul>
-<h2 id="邻接表法"><a href="#邻接表法" class="headerlink" title="邻接表法"></a>邻接表法</h2><ul>
-<li>结合顺序存储和链式存储</li>
-<li>适合存储稀疏图</li>
-</ul>
-<h3 id="具体-1"><a href="#具体-1" class="headerlink" title="具体"></a>具体</h3><ul>
-<li>对每个顶点建立一个单链表，保存依附于该结点的边，称之为邻接表（链式存储）</li>
-<li>边表的头指针和顶点的数据采用顺序存储，称之为顶点表（顺序存储）</li>
-<li>顶点表由数据域和指针域组成，数据域存储顶点信息，指针域指向第一个邻接点。</li>
-<li>边表由adjvex和next两个域组成，adjvex存储某顶点的邻接点在顶点表中的下标，next则存储指向边表中下一个结点的指针。</li>
-</ul>
-<p><img src="/images/%E5%9B%BE/2494103-20220420075925646-961971299.png" alt="img"></p>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
-<li><p>若图G为无向图，存储空间为O(V +2E)（边被保存两次）</p>
-<p>若图G为有向图，存储空间为O(V +E)</p>
-</li>
-<li><p>图的邻接表保存不唯一，因为邻接边的顺序任意</p>
-</li>
-<li><p>存储稀疏图可以节约空间</p>
-</li>
-</ul>
-<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
-<li>容易找到给定顶点的所有邻边</li>
-<li>确定两顶点间是否有边复杂</li>
-<li>计算出度简单，遍历邻接表即可</li>
-<li>计算入度复杂，需遍历全部邻接表</li>
-</ul>
-<h2 id="十字链表"><a href="#十字链表" class="headerlink" title="十字链表"></a>十字链表</h2><h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>有向图的链式存储</li>
-<li>出度入度易于计算</li>
-<li>图的十字链表表示不唯一，但十字链表可以确定一个图</li>
-</ul>
-<h2 id="邻接多重表"><a href="#邻接多重表" class="headerlink" title="邻接多重表"></a>邻接多重表</h2><h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>无向图的链式存储</li>
-<li>邻接多重表与邻接表相比，其一条边只有一个结点</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
-<thead>
-<tr>
-<th align="center">邻接矩阵</th>
-<th align="center">邻接表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">有向图、无向图</td>
-<td align="center">有向图、无向图</td>
-</tr>
-<tr>
-<td align="center">顺序结构</td>
-<td align="center">链式结构</td>
-</tr>
-<tr>
-<td align="center">稠密图</td>
-<td align="center">稀疏图</td>
-</tr>
-<tr>
-<td align="center">出度入度计算简单</td>
-<td align="center">出度计算简单，入度需要遍历</td>
-</tr>
-<tr>
-<td align="center">易于确定两点间是否有边</td>
-<td align="center">不易确定两点间是否有边</td>
-</tr>
-<tr>
-<td align="center">图表示唯一</td>
-<td align="center">图表示不唯一</td>
-</tr>
-</tbody></table>
-<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><p>不考算法题</p>
-<p>图的遍历较为复杂，可以设置一个辅助数组visited[]来标记结点是否被访问过</p>
-<p>图的遍历是求解图的连通性、拓扑排序和关键路径等算法的基础</p>
-<h2 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h2><h3 id="特点-4"><a href="#特点-4" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>类似二叉树的层序遍历，非递归算法，需要借助队列实现</li>
-<li>从起始顶点出发，一次访问其未访问过的邻接结点，不断进行直至访问所有结点</li>
-<li>Dijkstra单源最短路径算法和Prim最小生成树算法也应用了类似的思想</li>
-</ul>
-<p><img src="/images/%E5%9B%BE/2494103-20220420075927497-997483839.png" alt="img"></p>
-<h3 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h3><ul>
-<li><p>无论邻接表还是邻接矩阵，都需要借助辅助队列，所以空间复杂度为O(|V|)</p>
-</li>
-<li><p>邻接矩阵存储，时间复杂度为O(|V|+|E|)</p>
-<p>邻接表存储，时间复杂度为O(|V|^2)</p>
-</li>
-</ul>
-<h2 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h2><h3 id="特点-5"><a href="#特点-5" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>类似二叉树的先序遍历，尽可能深的搜索图</li>
-<li>实现可以采用递归，当然也可以通过栈实现非递归算法</li>
-<li>输出时颠倒顺序，输出的则为逆拓扑序列</li>
-</ul>
-<p><img src="/images/%E5%9B%BE/2494103-20220420075925898-1669369609.png" alt="img"></p>
-<h3 id="性能分析-1"><a href="#性能分析-1" class="headerlink" title="性能分析"></a>性能分析</h3><ul>
-<li><p>需要借助递归工作栈，空间复杂度为O(|V|)</p>
-</li>
-<li><p>邻接矩阵存储时，时间复杂度为O(|V^2|)</p>
-<p>邻接表存储时，时间复杂度为O(|V|+|E|)</p>
-</li>
-</ul>
-<h2 id="BFS、DFS与生成树"><a href="#BFS、DFS与生成树" class="headerlink" title="BFS、DFS与生成树"></a>BFS、DFS与生成树</h2><ul>
-<li>BFS、DFS都会产生一颗生成树，前提是该图是连通图，否则生成的生成森林</li>
-<li>邻接表的生成树不唯一，邻接矩阵的生成树唯一</li>
-</ul>
-<h2 id="图的遍历与图的连通性"><a href="#图的遍历与图的连通性" class="headerlink" title="图的遍历与图的连通性"></a>图的遍历与图的连通性</h2><ul>
-<li><p>遍历算法可以判断连通性</p>
-</li>
-<li><p>若无向图是连通的，一次遍历便可访问到所以结点</p>
-<p>若是非连通的，一次遍历只能访问到所在连通分量的所有结点，其他结点无法访问</p>
-</li>
-<li><p>对于有向图，若初始点到每个顶点都有路径，能访问到所有结点，否则不能</p>
-</li>
-</ul>
-<h1 id="图的应用（重点）"><a href="#图的应用（重点）" class="headerlink" title="图的应用（重点）"></a>图的应用（重点）</h1><p>出算法题概率较小</p>
-<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><ul>
-<li>最小生成树包含 图的所有顶点，且含有尽可能少的边</li>
-<li>增加一个边会形成回路，减少一条边会变成非连通图</li>
-</ul>
-<h3 id="特点-6"><a href="#特点-6" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>最小生成树不唯一，即树形不唯一</li>
-<li>最小生成树的边的权值之和唯一</li>
-<li>最小生成树的边数 &#x3D; 顶点数 - 1</li>
-</ul>
-<h3 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h3><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ul>
-<li>基于贪心算法（大概</li>
-<li>任取一顶点作为初始点加入树T，之后选取一个与<u><strong>T中顶点距离最近的点</strong></u>，并将其加入T中，不断进行，最后的生成树T必定有n-1条边</li>
-<li>选点，从初始T中不断选择权值最小的点</li>
-</ul>
-<p><img src="/images/%E5%9B%BE/2494103-20220420075926158-952236352.png" alt="img"></p>
-<h4 id="性能分析-2"><a href="#性能分析-2" class="headerlink" title="性能分析"></a>性能分析</h4><ul>
-<li>时间复杂度为O(|v^2|)，与图的边数无关</li>
-<li>适合边稠密的图的最小生成树的求解</li>
-</ul>
-<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><ul>
-<li>基于贪心算法（大概</li>
-<li>每个顶点自成一个连通分量，每次选出权值最小的边，并且不能生成回路，最终形成n-1条边的生成树</li>
-<li>选边，选权值最小的边</li>
-</ul>
-<p><img src="/images/%E5%9B%BE/2494103-20220420075927339-721675328.png" alt="img"></p>
-<h4 id="性能分析-3"><a href="#性能分析-3" class="headerlink" title="性能分析"></a>性能分析</h4><ul>
-<li>时间复杂度为O(|E|log|E|)</li>
-<li>适合边稀疏而顶点比较多的图</li>
-</ul>
-<p>图片转载于：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SuHaiHome/p/16168275.html#%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%86%B2%E5%88%BA%E7%AC%94%E8%AE%B0">https://www.cnblogs.com/SuHaiHome/p/16168275.html#%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%86%B2%E5%88%BA%E7%AC%94%E8%AE%B0</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/19/%E5%9B%BE/" rel="prev" title="图">
+      <i class="fa fa-chevron-left"></i> 图
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/19/%E6%88%90%E5%8A%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuko0931">
-      <meta itemprop="description" content="记录个人的学习进程及相关知识">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sion">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/19/%E6%88%90%E5%8A%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">成功搭建博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-09-19 00:13:28 / 修改时间：00:33:41" itemprop="dateCreated datePublished" datetime="2022-09-19T00:13:28+08:00">2022-09-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今晚，有意进行博客搭建，经过一段时间终于成功</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/18/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yuko0931">
-      <meta itemprop="description" content="记录个人的学习进程及相关知识">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sion">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/18/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-18 22:13:29" itemprop="dateCreated datePublished" datetime="2022-09-18T22:13:29+08:00">2022-09-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -976,6 +642,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">直接插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">性能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%98%E5%8D%8A%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text">折半插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-1"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">性能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F%EF%BC%88%E5%B8%B8%E8%80%83%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">希尔排序（常考）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-2"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-2"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-2"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">交换排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-3"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-3"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-3"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">性能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88%E5%B8%B8%E8%80%83%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">快速排序（常考）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-4"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-4"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-4"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.1.</span> <span class="nav-text">直接选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-5"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-5"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-5"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">性能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F%EF%BC%88%E5%B8%B8%E8%80%83%EF%BC%89"><span class="nav-number">1.4.2.</span> <span class="nav-text">堆排序（常考）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-6"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-6"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-6"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.5.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%B7%AF%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">二路归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E4%BD%93-7"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">具体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-7"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD-7"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">1.6.</span> <span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83%E6%80%BB%E7%BB%93%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">内部排序算法比较总结（重点）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F"><span class="nav-number">1.8.</span> <span class="nav-text">外部排序</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

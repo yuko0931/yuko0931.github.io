@@ -39,9 +39,9 @@
     <category term="data strcuture" scheme="http://example.com/categories/408/data-strcuture/"/>
     
     
-    <category term="data strcuture" scheme="http://example.com/tags/data-strcuture/"/>
-    
     <category term="408" scheme="http://example.com/tags/408/"/>
+    
+    <category term="data strcuture" scheme="http://example.com/tags/data-strcuture/"/>
     
   </entry>
   
@@ -67,9 +67,9 @@
     <category term="data strcuture" scheme="http://example.com/categories/408/data-strcuture/"/>
     
     
-    <category term="408" scheme="http://example.com/tags/408/"/>
-    
     <category term="data structure" scheme="http://example.com/tags/data-structure/"/>
+    
+    <category term="408" scheme="http://example.com/tags/408/"/>
     
   </entry>
   

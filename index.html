@@ -581,7 +581,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/09/19/graph/" class="post-title-link" itemprop="url">图</a>
+            <a href="/2022/09/19/graph/" class="post-title-link" itemprop="url">graph</a>
         </h2>
 
         <div class="post-meta">
@@ -598,7 +598,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-23 21:55:09" itemprop="dateModified" datetime="2022-09-23T21:55:09+08:00">2022-09-23</time>
+                <time title="修改时间：2022-09-24 22:16:06" itemprop="dateModified" datetime="2022-09-24T22:16:06+08:00">2022-09-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -796,6 +796,40 @@
 <li>时间复杂度为O(|E|log|E|)</li>
 <li>适合边稀疏而顶点比较多的图</li>
 </ul>
+<h2 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h2><ul>
+<li>单源最短路径：给定源点到其他各顶点的路径长度</li>
+<li>点对点最短路径：每对顶点间的最短路径</li>
+</ul>
+<h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><h4 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>也是基于贪心算法，和prime算法有些相似</li>
+<li>解决带权图的单源最短路径</li>
+<li><strong><u>不能求带有负权值的单源最短路径</u></strong></li>
+<li><strong><u>每次更新dist[]数组，从中选取相应结点的最短的路径长度</u></strong></li>
+</ul>
+<p><img src="/images/graph/2494103-20220420075925776-1671064660.png" alt="img"></p>
+<h4 id="性能分析-4"><a href="#性能分析-4" class="headerlink" title="性能分析"></a>性能分析</h4><ul>
+<li>时间复杂度O(|V|^2)</li>
+</ul>
+<h3 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h3><h4 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h4><ul>
+<li>该算法不是很明白</li>
+</ul>
+<p><img src="/images/graph/2494103-20220420075925783-1072304384.png" alt="img"></p>
+<h4 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h4><ul>
+<li>时间复杂度为O(|V|^3)</li>
+</ul>
+<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><h3 id="实现-4"><a href="#实现-4" class="headerlink" title="实现"></a>实现</h3><ul>
+<li>有向无环图</li>
+<li>不断删去入度为0的点即可</li>
+<li>下三角矩阵</li>
+</ul>
+<p><img src="/images/graph/2494103-20220420075925772-379218853.png" alt="img"></p>
+<h3 id="性能-1"><a href="#性能-1" class="headerlink" title="性能"></a>性能</h3><ul>
+<li>邻接矩阵时，时间复杂度为O(|V|^2)</li>
+<li>邻接表时，时间复杂度为O(|V|+|E|)</li>
+</ul>
+<h2 id="关键路径（较难"><a href="#关键路径（较难" class="headerlink" title="关键路径（较难"></a>关键路径（较难</h2><p><img src="/images/graph/2494103-20220420075927345-1077805367.png" alt="img"></p>
+<h3 id="关键参数"><a href="#关键参数" class="headerlink" title="关键参数"></a>关键参数</h3><p><img src="/images/graph/2494103-20220420075927274-1436562804.png" alt="img"></p>
+<h3 id="实现-5"><a href="#实现-5" class="headerlink" title="实现"></a>实现</h3><p><img src="/images/graph/2494103-20220420075925899-284481624.png" alt="img"></p>
 <p>图片转载于：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SuHaiHome/p/16168275.html#%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%86%B2%E5%88%BA%E7%AC%94%E8%AE%B0">https://www.cnblogs.com/SuHaiHome/p/16168275.html#%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%86%B2%E5%88%BA%E7%AC%94%E8%AE%B0</a></p>
 

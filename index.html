@@ -163,6 +163,158 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/24/search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yuko0931">
+      <meta itemprop="description" content="记录个人的学习进程及相关知识">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sion">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/24/search/" class="post-title-link" itemprop="url">search</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-24 22:31:02 / 修改时间：23:50:13" itemprop="dateCreated datePublished" datetime="2022-09-24T22:31:02+08:00">2022-09-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/data-structure/" itemprop="url" rel="index"><span itemprop="name">data structure</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li><p>查找可以分为静态查找和动态查找</p>
+<p>静态查找仅完成查找，无需动态的插入与删除</p>
+<p>动态查找需要动态的插入与删除</p>
+</li>
+<li><p>静态查找包括：顺序查找、折半查找</p>
+</li>
+<li><p>动态查找包括：二叉排序树、平衡二叉树、红黑树</p>
+<p>B树和B+树</p>
+</li>
+</ul>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ul>
+<li>了解各种算法的过程及代码</li>
+<li>注意各种算法查找成功和失败的ASL的计算</li>
+<li>比较不同算法的时间、空间复杂度及异同</li>
+</ul>
+<h1 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h1><h2 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h2><ul>
+<li><p>逐个比较表中的元素，直到找到表中元素或者表尾</p>
+</li>
+<li><p>注意算法中的哨兵</p>
+<p>通过哨兵使得不必判断数组是否越界</p>
+<p><img src="/images/search/image-20220924231925938.png" alt="image-20220924231925938"></p>
+</li>
+</ul>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><ul>
+<li><p>适用于顺序表、链表</p>
+</li>
+<li><p>有序无序皆可</p>
+</li>
+<li><p><u><strong>查找成功时的平均查找长度ASL为：(n+1)&#x2F;2</strong></u></p>
+<p><u><strong>查找失败时的平均查找长度ASL为：n+1</strong></u></p>
+</li>
+<li><p>时间复杂度为O(n)</p>
+</li>
+</ul>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><ul>
+<li><p>表中元素有序时，当查到到前一个元素小于key而下一个元素大于key时，便可停止，减小了查找失败的ASL</p>
+</li>
+<li><p>有序表、二叉判定树</p>
+</li>
+<li><p>查找成功的ASL相同</p>
+<p>查找失败的ASL变小</p>
+</li>
+</ul>
+<h1 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h1><h2 id="具体-1"><a href="#具体-1" class="headerlink" title="具体"></a>具体</h2><ul>
+<li><p>对有序顺序表进行查找，每次与表中间位置元素进行比较，根据大于小于关系在右半部或左半部继续查找，直至找到元素或失败。</p>
+</li>
+<li><p>有序顺序表、二叉判定树</p>
+<p>会画折半查找的二叉判定树</p>
+<p><u><strong>根据二叉判定树求查找成功、失败的ASL</strong></u></p>
+<p><img src="/images/search/2494103-20220420075926012-1660160874.png" alt="img"></p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><p>比较经典</p>
+<p><img src="/images/search/image-20220924232913126.png" alt="image-20220924232913126"></p>
+</li>
+</ul>
+<h2 id="性能-1"><a href="#性能-1" class="headerlink" title="性能"></a>性能</h2><ul>
+<li><p>仅适用于有序顺序表</p>
+</li>
+<li><p>二叉判定树树高：log2[n+1]</p>
+</li>
+<li><p><strong><u>二叉判断树判定树会比较平衡，因为要求顺序表有序</u></strong></p>
+</li>
+<li><p>时间复杂度：O(logn)</p>
+<p>与树的深度有关</p>
+</li>
+</ul>
+<h1 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h1><h2 id="具体-2"><a href="#具体-2" class="headerlink" title="具体"></a>具体</h2><ul>
+<li>将数组元素分块，选每个块中的最大关键字为该块的key，块之间有序，块内可以无序，并给块的key及第一个数据的位置建立索引表，加快查找速度</li>
+<li>查找时则分为两步，确定待查元素所在的块、块内顺序查询目标元素</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li><p>ASL：</p>
+<p><strong><u>注意ASL的计算以及题目中规定是块内、块间查找方法</u></strong></p>
+<p><img src="/images/search/image-20220924234706885.png" alt="image-20220924234706885"></p>
+</li>
+<li><p>总元素为n的表，最佳分块为 √n</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/22/sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,7 +346,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-23 21:54:55" itemprop="dateModified" datetime="2022-09-23T21:54:55+08:00">2022-09-23</time>
+                <time title="修改时间：2022-09-24 22:33:17" itemprop="dateModified" datetime="2022-09-24T22:33:17+08:00">2022-09-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +379,7 @@
 <p>内部排序绝大部分是基于比较和移动，基数排序例外</p>
 <p>内部排序也可分为三大类：插入排序、选择排序、交换排序，以及归并排序和基数排序</p>
 <p>外部排序主要是归并排序，考虑到要与外出交互，减少IO读写时间为关键。可以通过增加归并数目和减少归并段来实现，因此引入了败者树、选择-置换、和最佳归并树。</p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><h4 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h4><ul>
+<h1 id="内部排序"><a href="#内部排序" class="headerlink" title="内部排序"></a>内部排序</h1><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><h4 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h4><ul>
 <li>将数组分为已排序好部分和未排序部分，依次从未排序元素与已排序部分比较，确定插入位置，已排序部分进行相应后移，将数据插入，直至有序</li>
 </ul>
 <p><img src="/images/sort/2494103-20220420075926078-1599669564.png" alt="img"></p>
@@ -544,7 +696,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h2><p>东西不算少，不常考察</p>
+<h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><p>东西不算少，不常考察</p>
 <p><img src="/images/sort/2494103-20220420075938212-601628692.png" alt="img"></p>
 <p>图片转载于：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SuHaiHome/p/16168275.html#%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%86%B2%E5%88%BA%E7%AC%94%E8%AE%B0">https://www.cnblogs.com/SuHaiHome/p/16168275.html#%E8%80%83%E7%A0%94%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%86%B2%E5%88%BA%E7%AC%94%E8%AE%B0</a></p>
@@ -598,7 +750,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-24 22:16:06" itemprop="dateModified" datetime="2022-09-24T22:16:06+08:00">2022-09-24</time>
+                <time title="修改时间：2022-09-24 22:32:43" itemprop="dateModified" datetime="2022-09-24T22:32:43+08:00">2022-09-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -625,7 +777,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h1><h2 id="邻接矩阵法"><a href="#邻接矩阵法" class="headerlink" title="邻接矩阵法"></a>邻接矩阵法</h2><ul>
+          <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h1 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h1><h2 id="邻接矩阵法"><a href="#邻接矩阵法" class="headerlink" title="邻接矩阵法"></a>邻接矩阵法</h2><ul>
 <li>一维数组存储顶点信息（简单应用时可以省略）</li>
 <li>二维数据存储邻接关系（邻接矩阵，重点）</li>
 <li>有向图、无向图、带权图均可以存储</li>
@@ -1042,7 +1194,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

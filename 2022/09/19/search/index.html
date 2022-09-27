@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="title: searchtypora-root-url: ..&#x2F;date: 2022-09-24 22:31:02tags:   data structure 408categories:  408 data structure  查找概述 查找可以分为静态查找和动态查找 静态查找仅完成查找，无需动态的插入与删除 动态查找需要动态的插入与删除  静态查找包括：顺序查找、折半查找  动态">
+  <meta name="description" content="查找概述 查找可以分为静态查找和动态查找 静态查找仅完成查找，无需动态的插入与删除 动态查找需要动态的插入与删除  静态查找包括：顺序查找、折半查找  动态查找包括：二叉排序树、平衡二叉树、红黑树 B树和B+树   重点 了解各种算法的过程及代码 注意各种算法查找成功和失败的ASL的计算 比较不同算法的时间、空间复杂度及异同  顺序查找具体 逐个比较表中的元素，直到找到表中元素或者表尾  注意算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sion">
-<meta property="og:url" content="http://example.com/2022/09/24/search/index.html">
+<meta property="og:title" content="sort">
+<meta property="og:url" content="http://example.com/2022/09/19/search/index.html">
 <meta property="og:site_name" content="Sion">
-<meta property="og:description" content="title: searchtypora-root-url: ..&#x2F;date: 2022-09-24 22:31:02tags:   data structure 408categories:  408 data structure  查找概述 查找可以分为静态查找和动态查找 静态查找仅完成查找，无需动态的插入与删除 动态查找需要动态的插入与删除  静态查找包括：顺序查找、折半查找  动态">
+<meta property="og:description" content="查找概述 查找可以分为静态查找和动态查找 静态查找仅完成查找，无需动态的插入与删除 动态查找需要动态的插入与删除  静态查找包括：顺序查找、折半查找  动态查找包括：二叉排序树、平衡二叉树、红黑树 B树和B+树   重点 了解各种算法的过程及代码 注意各种算法查找成功和失败的ASL的计算 比较不同算法的时间、空间复杂度及异同  顺序查找具体 逐个比较表中的元素，直到找到表中元素或者表尾  注意算法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/search/image-20220924231925938.png">
 <meta property="og:image" content="http://example.com/images/search/2494103-20220420075926012-1660160874.png">
@@ -35,13 +35,15 @@
 <meta property="og:image" content="http://example.com/images/search/image-20220925201255855.png">
 <meta property="og:image" content="http://example.com/images/search/image-20220925203746739.png">
 <meta property="og:image" content="http://example.com/images/search/image-20220925205427087.png">
-<meta property="article:published_time" content="2022-09-24T14:31:02.655Z">
-<meta property="article:modified_time" content="2022-09-25T13:14:56.078Z">
+<meta property="article:published_time" content="2022-09-19T14:52:38.000Z">
+<meta property="article:modified_time" content="2022-09-27T13:36:06.017Z">
 <meta property="article:author" content="yuko0931">
+<meta property="article:tag" content="408">
+<meta property="article:tag" content="data structure">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/search/image-20220924231925938.png">
 
-<link rel="canonical" href="http://example.com/2022/09/24/search/">
+<link rel="canonical" href="http://example.com/2022/09/19/search/">
 
 
 <script id="page-configurations">
@@ -54,7 +56,7 @@
   };
 </script>
 
-  <title> | Sion</title>
+  <title>sort | Sion</title>
   
 
 
@@ -175,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/24/search/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/19/search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          sort
         </h1>
 
         <div class="post-meta">
@@ -198,15 +200,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-09-24 22:31:02" itemprop="dateCreated datePublished" datetime="2022-09-24T22:31:02+08:00">2022-09-24</time>
+              <time title="创建时间：2022-09-19 22:52:38" itemprop="dateCreated datePublished" datetime="2022-09-19T22:52:38+08:00">2022-09-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-25 21:14:56" itemprop="dateModified" datetime="2022-09-25T21:14:56+08:00">2022-09-25</time>
+                <time title="修改时间：2022-09-27 21:36:06" itemprop="dateModified" datetime="2022-09-27T21:36:06+08:00">2022-09-27</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/408/data-structure/" itemprop="url" rel="index"><span itemprop="name">data structure</span></a>
+                </span>
+            </span>
 
           
 
@@ -219,14 +234,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>title: search<br>typora-root-url: ..&#x2F;<br>date: 2022-09-24 22:31:02<br>tags: </p>
-<ul>
-<li>data structure</li>
-<li>408<br>categories: </li>
-<li>408</li>
-<li>data structure</li>
-</ul>
-<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+        <h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
 <li><p>查找可以分为静态查找和动态查找</p>
 <p>静态查找仅完成查找，无需动态的插入与删除</p>
 <p>动态查找需要动态的插入与删除</p>
@@ -399,6 +407,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/408/" rel="tag"># 408</a>
+              <a href="/tags/data-structure/" rel="tag"># data structure</a>
+          </div>
 
         
 
@@ -406,12 +418,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/22/sort/" rel="prev" title="sort">
-      <i class="fa fa-chevron-left"></i> sort
+    <a href="/2022/09/19/graph/" rel="prev" title="graph">
+      <i class="fa fa-chevron-left"></i> graph
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/09/26/math/" rel="next" title="math">
-      math <i class="fa fa-chevron-right"></i>
+    <a href="/2022/09/22/sort/" rel="next" title="sort">
+      sort <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

@@ -194,7 +194,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-28 23:13:12" itemprop="dateModified" datetime="2022-09-28T23:13:12+08:00">2022-09-28</time>
+                <time title="修改时间：2022-09-30 23:19:46" itemprop="dateModified" datetime="2022-09-30T23:19:46+08:00">2022-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,7 +221,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>为使用介质的每个结点隔离来自同一信道上其他结点所传送的信号</p>
+          <h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="数据链路层功能"><a href="#数据链路层功能" class="headerlink" title="数据链路层功能"></a>数据链路层功能</h1><p>在物理层提供服务的基础上为网络层提供服务</p>
+<h2 id="为网络层提供服务"><a href="#为网络层提供服务" class="headerlink" title="为网络层提供服务"></a>为网络层提供服务</h2><ul>
+<li>无确认的无连接服务</li>
+<li>有确认的无连接服务</li>
+<li>有确认的面向连接服务</li>
+</ul>
+<h2 id="链路管理"><a href="#链路管理" class="headerlink" title="链路管理"></a>链路管理</h2><p>链路的建立、维持与释放</p>
+<h2 id="帧定界、帧同步与透明传输"><a href="#帧定界、帧同步与透明传输" class="headerlink" title="帧定界、帧同步与透明传输"></a>帧定界、帧同步与透明传输</h2><ul>
+<li>分装成帧</li>
+<li>帧定界</li>
+<li>透明传输</li>
+</ul>
+<h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><p>限制发送方的速率，使得发送方的速率 &lt;&#x3D; 接收方的速率</p>
+<h2 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h2><ul>
+<li>位错：CRC检错，ARQ重传</li>
+<li>帧错：定时器和编号机制</li>
+</ul>
+<h1 id="组帧"><a href="#组帧" class="headerlink" title="组帧"></a>组帧</h1><p>数据链路层传输的单位是帧</p>
+<h2 id="字符计数法"><a href="#字符计数法" class="headerlink" title="字符计数法"></a>字符计数法</h2><ul>
+<li>头部给定一个计数字段来标明帧内字符数</li>
+<li>比较依赖计数字段，若出错便寄了</li>
+</ul>
+<h2 id="字符填充首尾定界法"><a href="#字符填充首尾定界法" class="headerlink" title="字符填充首尾定界法"></a>字符填充首尾定界法</h2><ul>
+<li>SOH放在最前表示开始，EOT放在最后表示结束</li>
+<li>ESC转义</li>
+</ul>
+<h2 id="零比特填充首尾定界法"><a href="#零比特填充首尾定界法" class="headerlink" title="零比特填充首尾定界法"></a>零比特填充首尾定界法</h2><ul>
+<li>01111110(F)标志一帧的开始和结束</li>
+<li>逢11111加0</li>
+</ul>
+<h2 id="违规编码法"><a href="#违规编码法" class="headerlink" title="违规编码法"></a>违规编码法</h2><ul>
+<li>物理层进行比特编码时常常采用</li>
+<li>目前较常用的是比特填充法和首尾定界法</li>
+</ul>
+<h1 id="差错控制-1"><a href="#差错控制-1" class="headerlink" title="差错控制"></a>差错控制</h1><ul>
+<li><p>编码技术进行差错控制</p>
+<p>自动重传请求ARQ</p>
+<p>前向纠错FEC</p>
+</li>
+<li><p>检错编码和纠错编码</p>
+</li>
+</ul>
+<h2 id="检错编码"><a href="#检错编码" class="headerlink" title="检错编码"></a>检错编码</h2><p>冗余编码技术</p>
+<h3 id="奇偶校检码"><a href="#奇偶校检码" class="headerlink" title="奇偶校检码"></a>奇偶校检码</h3><ul>
+<li>只能检测奇数个位数的出错情况，不能检测偶数位的出错情况</li>
+<li>不知道是哪些位出错</li>
+</ul>
+<h3 id="循环冗余码"><a href="#循环冗余码" class="headerlink" title="循环冗余码"></a>循环冗余码</h3><ul>
+<li>发送方与接收方约定一个公共多项式</li>
+<li>m bit的报文，r位的多项式</li>
+<li>加0：报文后 ＋ r-1个0</li>
+<li>模2除：余数为冗余码r位</li>
+<li>最后得到m+r位数据</li>
+</ul>
+<h2 id="纠错编码（海明码"><a href="#纠错编码（海明码" class="headerlink" title="纠错编码（海明码"></a>纠错编码（海明码</h2><ul>
+<li><p>n位信息位，k为校检位个数</p>
+<p>n+k &lt;&#x3D; 2^k - 1</p>
+</li>
+<li><p>海明码纠错d位，需要码矩为2d+1</p>
+<p>检错d位，需要码矩d+1</p>
+</li>
+</ul>
+<p>有点复杂，看书了解吧</p>
+<h1 id="流量控制与可靠传输机制"><a href="#流量控制与可靠传输机制" class="headerlink" title="流量控制与可靠传输机制"></a>流量控制与可靠传输机制</h1><h2 id="流量控制-1"><a href="#流量控制-1" class="headerlink" title="流量控制"></a>流量控制</h2><p>控制发送方发送数据的速率</p>
+<p>常见的的方式是**<u>停止-等待协议和滑动窗口协议</u>**</p>
+<h3 id="停止-等待流量控制"><a href="#停止-等待流量控制" class="headerlink" title="停止-等待流量控制"></a>停止-等待流量控制</h3><ul>
+<li>每发送一帧，必须等待接收方的应答信号，之后才能发送下一帧</li>
+<li>每接收一帧，必须反馈一个应答信号，如果接收方不进行反馈，必须一直等待</li>
+<li>每次只允许发一帧，效率很低</li>
+</ul>
+<h3 id="滑动窗口流量控制（重点"><a href="#滑动窗口流量控制（重点" class="headerlink" title="滑动窗口流量控制（重点"></a><strong>滑动窗口流量控制（重点</strong></h3><h1 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>为使用介质的每个结点隔离来自同一信道上其他结点所传送的信号</p>
 <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
 <li>信道划分介质访问控制（静态</li>
 <li>随机访问介质访问控制（动态</li>
